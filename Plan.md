@@ -20,5 +20,8 @@
 - Display a "_ _ _ _ _" format and fill in the blanks as people guess right
 - Generate the logic for what happens if you win or what happens if you lose
 
+ ## Notes commit
 
+  - 24/2/24 commit : You need to fix the if statements in the do while loop so that you get the desired results you need in the terminal. 
+  continue reading the String Methods page on W3 schools to help you. Try and write out the logic of what you think the code is trying to do logically and change it to suit what you need. 
 

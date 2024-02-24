@@ -6,8 +6,5 @@ public class App {
        GameLogic Logic = new GameLogic();
        Logic.RandomWordGenerator();
 
-       
-
-
     }
 }

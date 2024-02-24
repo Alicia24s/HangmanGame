@@ -9,52 +9,57 @@ public void RandomWordGenerator(){
     String randomWords[] = new String[]{"claps", "crabs", "creep", "crawl"};
     Random random = new Random();
 
-    String guessedWord[] = {randomWords[random.nextInt(randomWords.length)]};
-
-    //Scanner to take users guess input
+    //Removed unneccessary Array because you can just use .contains . replace etc etc
+    String wordToGuess = randomWords[random.nextInt(randomWords.length)];
+    
     Scanner guesses = new Scanner(System.in);
-    String guess = guesses.nextLine();
     
-    // use the replace function in this string string to hide the functions in the string
-    System.out.println("Guess a letter: _ _ _ _ _");
-
-    /* Put a do/while loop around this statement to loop this sequence 5 times so you can
-    have a message when the user runs out of lives saying sorry youre done 
-
-    How would you do this so that it iteratively prints the letters rather than one at a time
-
-    //How can you just unhide a letter rather than hardcoding it?
-*/ 
-     
     
-        if(guess.equals(guessedWord[0])){
-            
-            
-        }
-        else if(guess.equals(guessedWord[1])){
+    
+    //initialised j rather than using a for loop in the else statement within the if statements inside the do while loop below
+    int j = 5;
 
-        }
-        else if(guess.equals(guessedWord[2])){
+    do{
+    
+        //moved question and scanner inside do-while loop so that it workspast the first ask for a letter 
+        System.out.println("Guess a letter: " + wordToGuess.replaceAll("[a-z]", " _ "));
+        String guess = guesses.nextLine();
+
+        if(wordToGuess.contains(guess)){
+
+            System.out.println(guess.replaceFirst(guess, "_"));
+            wordToGuess = guess.replace(wordToGuess, guess);
         
-        }
+          }
+        else if (wordToGuess.equals(guess)) {
 
-        else if(guess.equals(guessedWord[3])){
-
-        }
-        else if(guess.equals(guessedWord[4])){
+            System.out.println("Well done the answer is:" + guess);
 
         }
+        
         else{
-            System.out.println("WRONG TRY AGAIN :)");
-            // call a function that links to a loop statement that
-            //calls the count down function which you can add to the string above repeats 
-            //so you can have soemthing like "Wrong try again 4 lives remaining"
-        }
+        
+    
+                 if (j >= 1 ) {
+                    
+                        System.out.println("WRONG TRY AGAIN :) you have" + j + "lives remaining");
+                  
+                     }
+                         else{
 
-        Scanner.close();
+                            System.out.println("Youre done, You're done");
+                            System.exit(0);
+                      }
+                   }   j--;
+               
+           
+        
+        }while(j>0);
+
+        guesses.close();
+
     }
-
-} 
+}
 
 
  
